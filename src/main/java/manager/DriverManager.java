@@ -25,9 +25,9 @@ public final class DriverManager {
 
     public void initializeDriver()
     {
-        BrowserType driverType = BrowserType.CHROME;
+        String browserName = BrowserConfig.getInstance().getBrowserName();
 
-        webDriver = WebDriverFactory.GetManager(driverType).getDriver();
+        webDriver = WebDriverFactory.GetManager(BrowserType.valueOf(browserName)).getDriver();
         webDriver.manage().window().maximize();
     }
 
