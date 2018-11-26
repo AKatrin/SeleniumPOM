@@ -1,4 +1,4 @@
-package manager;
+package framework.manager;
 
 import net.minidev.json.JSONObject;
 import net.minidev.json.parser.JSONParser;

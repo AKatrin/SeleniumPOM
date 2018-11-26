@@ -1,4 +1,4 @@
-package manager;
+package framework.manager;
 
 public enum BrowserType {
     FIREFOX,

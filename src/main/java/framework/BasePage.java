@@ -1,6 +1,6 @@
 package framework;
 
-import manager.DriverManager;
+import framework.manager.DriverManager;
 import org.openqa.selenium.WebDriver;
 
 public class BasePage {

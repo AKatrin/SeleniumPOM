@@ -1,3 +1,4 @@
+import framework.GoogleLandingPage;
 import org.testng.annotations.Test;
 
 public class TestDashboard {
@@ -10,6 +11,6 @@ public class TestDashboard {
                 .setTextOnSearchTextField("Naruto")
                 .clickOnSearchWithGoogleButton()
         .toolBar
-            .clickOnImagenesMenuItem();
+            .clickOnImagesMenuItem();
     }
 }

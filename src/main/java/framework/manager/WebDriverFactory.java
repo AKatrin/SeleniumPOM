@@ -1,6 +1,4 @@
-package manager;
-
-import java.io.File;
+package framework.manager;
 
 public class WebDriverFactory {
 

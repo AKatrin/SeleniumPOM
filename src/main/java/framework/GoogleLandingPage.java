@@ -1,6 +1,8 @@
-import framework.BasePage;
+package framework;
+
+import framework.searchResult.SearchResultPage;
+import framework.utils.CommonActions;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 public class GoogleLandingPage extends BasePage {
 
@@ -8,18 +10,21 @@ public class GoogleLandingPage extends BasePage {
     private By searchWithGoogleButton = By.xpath("//input[@name='btnK' and ancestor::div[@class='FPdoLc VlcLAe']]");
 
     public GoogleLandingPage clickOnSearchTextField(){
-        driver.findElement(searchTextField).click();
+       // driver.findElement(searchTextField).click();
+        CommonActions.click(searchTextField);
         return this;
     }
 
     public GoogleLandingPage setTextOnSearchTextField(String text){
-        driver.findElement(searchTextField).sendKeys(text);
+        //driver.findElement(searchTextField).sendKeys(text);
+        CommonActions.setText(searchTextField, text);
         return this;
     }
 
     public SearchResultPage clickOnSearchWithGoogleButton(){
-        WebElement button = driver.findElement(searchWithGoogleButton);
-        button.click();
+        //WebElement button = driver.findElement(searchWithGoogleButton);
+        CommonActions.click(searchWithGoogleButton);
+        //button.click();
         //driver.findElement(searchWithGoogleButton).submit();
         return new SearchResultPage();
     }

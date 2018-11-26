@@ -1,3 +1,4 @@
+package framework;
 
 import framework.BasePage;
 import org.openqa.selenium.By;
