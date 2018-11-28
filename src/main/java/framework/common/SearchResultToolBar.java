@@ -1,6 +1,6 @@
 package framework.common;
 
-import framework.BasePage;
+import framework.pages.BasePage;
 import org.openqa.selenium.By;
 
 public class SearchResultToolBar extends BasePage {

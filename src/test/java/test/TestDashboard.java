@@ -1,4 +1,6 @@
-import framework.GoogleLandingPage;
+package test;
+
+import framework.pages.GoogleLandingPage;
 import org.testng.annotations.Test;
 
 public class TestDashboard {

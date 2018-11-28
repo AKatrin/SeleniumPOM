@@ -1,7 +1,8 @@
-package framework;
+package framework.pages;
 
 import framework.searchResult.SearchResultPage;
 import framework.utils.CommonActions;
+import framework.utils.ExtentManager;
 import org.openqa.selenium.By;
 
 public class GoogleLandingPage extends BasePage {
@@ -12,6 +13,7 @@ public class GoogleLandingPage extends BasePage {
     public GoogleLandingPage clickOnSearchTextField(){
        // driver.findElement(searchTextField).click();
         CommonActions.click(searchTextField);
+        ExtentManager.getInstance().initializeReport();
         return this;
     }
 
@@ -31,6 +33,7 @@ public class GoogleLandingPage extends BasePage {
 
     public GoogleLandingPage goTo(){
         driver.get("http://www.google.com");
+
         return this;
     }
 }
