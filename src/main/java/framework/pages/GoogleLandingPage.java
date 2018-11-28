@@ -1,5 +1,6 @@
 package framework.pages;
 
+import framework.reports.ExtentManager;
 import framework.searchResult.SearchResultPage;
 import framework.utils.CommonActions;
 import org.openqa.selenium.By;
@@ -17,7 +18,13 @@ public class GoogleLandingPage extends BasePage {
     }
 
     public GoogleLandingPage setTextOnSearchTextField(String text){
-        CommonActions.setText(searchTextField, text);
+        try{
+            CommonActions.setText(searchTextField, text);
+            ExtentManager.getInstance().logTestPass("The text was set with: " + text);
+            report.flush();
+        }catch (Exception e) {
+            ExtentManager.getInstance().logTestFailed("The text wasn't set" + e.getMessage());
+        }
         return this;
     }
 
