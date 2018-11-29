@@ -14,10 +14,9 @@ public class TestBase {
         ExtentManager.getInstance().startNewTest(nameMethod);
     }
 
-    @AfterClass
+    @AfterTest
     public void tearDown () {
         ExtentManager.getInstance().endCurrentTest();
         ExtentManager.getInstance().flushCurrentTest();
     }
-
 }

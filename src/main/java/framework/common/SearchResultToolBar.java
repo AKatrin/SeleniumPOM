@@ -1,6 +1,7 @@
 package framework.common;
 
 import framework.pages.BasePage;
+import framework.reports.ExtentManager;
 import org.openqa.selenium.By;
 
 public class SearchResultToolBar extends BasePage {
@@ -14,6 +15,12 @@ public class SearchResultToolBar extends BasePage {
     public void clickOnImagesMenuItem() {
         /*WebDriverWait wait = new WebDriverWait(driver, 30000);
         wait.until(ExpectedConditions.visibilityOfElementLocated(imagesMenuItem));*/
-        driver.findElement(imagesMenuItem).click();
+        try {
+            driver.findElement(imagesMenuItem).click();
+            ExtentManager.getInstance().logTestPass("Click on Imágenes");
+        }catch (Exception e) {
+            ExtentManager.getInstance().logTestFailed(e.getMessage() + e.getCause());
+        }
+
     }
 }
