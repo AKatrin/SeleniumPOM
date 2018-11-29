@@ -9,28 +9,23 @@ public class ReportManager {
     private ExtentReports report;
     private ExtentTest extentTest;
 
-    private ReportManager()
-    {
+    private ReportManager() {
         initializeReport();
     }
 
-    public static ReportManager getInstance()
-    {
-        if (instance == null)
-        {
+    public static ReportManager getInstance() {
+        if (instance == null) {
             instance = new ReportManager();
         }
         return instance;
     }
 
-    public void initializeReport()
-    {
+    public void initializeReport() {
         String path = System.getProperty("user.dir");
-        report = new ExtentReports(path +"\\ExtentReportResults.html");
+        report = new ExtentReports(path + "\\ExtentReportResults.html");
     }
 
-    public ExtentReports getExtendReport()
-    {
+    public ExtentReports getExtendReport() {
         return report;
     }
 

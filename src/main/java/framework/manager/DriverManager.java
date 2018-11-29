@@ -9,40 +9,33 @@ public final class DriverManager {
     private WebDriver webDriver;
     private WebDriverWait webDriverWait;
 
-    private DriverManager()
-    {
+    private DriverManager() {
         initializeDriver();
     }
 
-    public static DriverManager getInstance()
-    {
-        if (instance == null)
-        {
+    public static DriverManager getInstance() {
+        if (instance == null) {
             instance = new DriverManager();
         }
         return instance;
     }
 
-    public void initializeDriver()
-    {
+    public void initializeDriver() {
         String browserName = BrowserConfig.getInstance().getBrowserName();
 
         webDriver = WebDriverFactory.GetManager(BrowserType.valueOf(browserName)).getDriver();
         webDriver.manage().window().maximize();
     }
 
-    public void quitWebDriver()
-    {
+    public void quitWebDriver() {
         webDriver.quit();
     }
 
-    public WebDriver getWebDriver()
-    {
+    public WebDriver getWebDriver() {
         return webDriver;
     }
 
-    public WebDriverWait getWebDriverWait()
-    {
+    public WebDriverWait getWebDriverWait() {
         return webDriverWait;
     }
 

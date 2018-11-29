@@ -6,9 +6,9 @@ import org.openqa.selenium.support.PageFactory;
 
 public class BasePage {
 
-    protected WebDriver driver  = DriverManager.getInstance().getWebDriver();
+    protected WebDriver driver = DriverManager.getInstance().getWebDriver();
 
-    public BasePage(){
+    public BasePage() {
         PageFactory.initElements(driver, this);
     }
 }

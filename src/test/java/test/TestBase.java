@@ -9,8 +9,7 @@ public class TestBase {
 
     @BeforeMethod
     public void setup (Method method) {
-       //  it will be invoked before every test method
-       String nameMethod = method.getName();
+        String nameMethod = method.getName();
         ReportManager.getInstance().startNewTest(nameMethod);
     }
 
