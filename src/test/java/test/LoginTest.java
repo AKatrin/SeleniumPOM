@@ -7,12 +7,10 @@ public class LoginTest extends TestBase{
 
     @Test
     public void testLoginOrangeHRM() {
-        LoginPage googleLandingPage = new LoginPage();
+        LoginPage loginPage = new LoginPage();
 
-        googleLandingPage
+        loginPage
                 .goTo()
-                .fillUserNameInUserNameField("admin")
-                .fillPasswordInPasswordField("admin123")
                 .clickOnLoginButton();
     }
 }
