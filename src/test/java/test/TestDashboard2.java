@@ -1,14 +1,16 @@
-import framework.GoogleLandingPage;
+package test;
+
+import framework.pages.GoogleLandingPage;
 import org.testng.annotations.Test;
 
-public class TestDashboard {
+public class TestDashboard2 extends TestBase{
     @Test
-    public void testGoogleLandingPage() {
+    public void testGoogleLandingPageTwo() {
         GoogleLandingPage googleLandingPage = new GoogleLandingPage();
 
         googleLandingPage
                 .goTo()
-                .setTextOnSearchTextField("Naruto")
+                .setTextOnSearchTextField("Goku")
                 .clickOnSearchWithGoogleButton()
         .toolBar
             .clickOnImagesMenuItem();
