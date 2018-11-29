@@ -4,21 +4,21 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-public class ExtentManager {
-    private static ExtentManager instance;
+public class ReportManager {
+    private static ReportManager instance;
     private ExtentReports report;
     private ExtentTest extentTest;
 
-    private ExtentManager()
+    private ReportManager()
     {
         initializeReport();
     }
 
-    public static ExtentManager getInstance()
+    public static ReportManager getInstance()
     {
         if (instance == null)
         {
-            instance = new ExtentManager();
+            instance = new ReportManager();
         }
         return instance;
     }

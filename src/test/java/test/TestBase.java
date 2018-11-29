@@ -1,6 +1,6 @@
 package test;
 
-import framework.reports.ExtentManager;
+import framework.reports.ReportManager;
 import org.testng.annotations.*;
 
 import java.lang.reflect.Method;
@@ -11,12 +11,12 @@ public class TestBase {
     public void setup (Method method) {
        //  it will be invoked before every test method
        String nameMethod = method.getName();
-        ExtentManager.getInstance().startNewTest(nameMethod);
+        ReportManager.getInstance().startNewTest(nameMethod);
     }
 
     @AfterTest
     public void tearDown () {
-        ExtentManager.getInstance().endCurrentTest();
-        ExtentManager.getInstance().flushCurrentTest();
+        ReportManager.getInstance().endCurrentTest();
+        ReportManager.getInstance().flushCurrentTest();
     }
 }
