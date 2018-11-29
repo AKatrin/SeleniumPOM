@@ -4,16 +4,20 @@ import framework.pages.BasePage;
 import framework.reports.ReportManager;
 import framework.utils.CommonActions;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
 
-    private By inputToInsertUserName = By.id("txtUsername");
     private By inputToInsertPassword = By.id("txtPassword");
     private By loginButton = By.id("btnLogin");
 
+    @FindBy(id = "txtUsername")
+    private WebElement txtUserName;
+
     public LoginPage fillUserNameInUserNameField(String userName) {
         try{
-            CommonActions.setText(inputToInsertUserName, userName);
+            CommonActions.setText(txtUserName, userName);
             ReportManager.getInstance().logTestPass("Fill User name field with: " + userName);
         }catch (Exception e) {
             ReportManager.getInstance().logTestFailed("Step Failed" + e.getMessage());
@@ -31,10 +35,10 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    public DashboardOrangeHRMPage clickOnLoginButton(String password) {
+    public DashboardOrangeHRMPage clickOnLoginButton() {
         try{
             CommonActions.click(loginButton);
-            ReportManager.getInstance().logTestPass("Fill User name field with: " + password);
+            ReportManager.getInstance().logTestPass("Click on login button  ");
         }catch (Exception e) {
             ReportManager.getInstance().logTestFailed("Step Failed" + e.getMessage());
         }
