@@ -1,4 +1,5 @@
 {
   "browser": "CHROME",
-  "driverPath": "C:\\dev\\tools\\chromeTools\\chromedriver.exe"
+  "driverPath": "C:\\dev\\tools\\chromeTools\\chromedriver.exe",
+  "orangeURL": "https://orangehrm-demo-6x.orangehrmlive.com/auth/login"
 }

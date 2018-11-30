@@ -26,7 +26,11 @@ public class BrowserConfig {
 
     }
 
-
+    public String getOrangeURL() {
+        JSONObject jsonObject = (JSONObject) getJSON();
+        String orangeURL = (String) jsonObject.get("orangeURL");
+        return orangeURL;
+    }
 
     private Object getJSON() {
         ClassLoader classLoader = getClass().getClassLoader();
