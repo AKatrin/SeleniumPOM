@@ -8,20 +8,23 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class MenuLeft extends BasePage {
-    @FindBy(id = "menu_pim_viewPimModule")
+    @FindBy(xpath = "//li[@id='menu_pim_viewPimModule']/a")
     private WebElement pimOption;
     @FindBy(id = "menu_pim_Configuration")
     private WebElement configurationOption;
     @FindBy(id = "menu_pim_viewCustomFieldSectionList")
     private WebElement customFieldOption;
 
+    private WebElement buttonAddEmploye;
+
     public MenuLeft clickOnPIMOptionOfLeftMenu() {
         try {
-            Thread.sleep(10000);
+            CommonActions.waitForElementToBeClickable(pimOption);
             CommonActions.click(pimOption);
-            ReportManager.getInstance().logTestPass("click on PIM option");
+            ReportManager.getInstance().logPass("click on PIM option");
         } catch (Exception e) {
             ReportManager.getInstance().logTestFailed(e.getMessage());
+            throw new RuntimeException(e);
         }
         return this;
     }
@@ -29,7 +32,7 @@ public class MenuLeft extends BasePage {
     public MenuLeft clickOnConfigurationOption() {
         try {
             CommonActions.click(configurationOption);
-            ReportManager.getInstance().logTestPass("Click on Configuration option");
+            ReportManager.getInstance().logPass("Click on Configuration option");
         } catch (Exception e) {
             ReportManager.getInstance().logTestFailed("It's not possible to click error: " + e.getMessage());
         }
@@ -39,10 +42,14 @@ public class MenuLeft extends BasePage {
     public CustomFieldSectionsPage clickOnCustomField() {
         try {
             CommonActions.click(customFieldOption);
-            ReportManager.getInstance().logTestPass("Click on Custom field option on left menu");
+            ReportManager.getInstance().logPass("Click on Custom field option on left menu");
         } catch (Exception e) {
             ReportManager.getInstance().logTestFailed("It's not possible to click error: " + e.getMessage());
         }
         return new CustomFieldSectionsPage();
+    }
+
+    public void clickOnButtonAddEmployee() {
+
     }
 }

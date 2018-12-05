@@ -19,7 +19,7 @@ public class LoginPage extends BasePage {
     public LoginPage setUserNameField(String userName) {
         try {
             CommonActions.setText(inputToInsertUserName, userName);
-            ReportManager.getInstance().logTestPass("Set User name field with: " + userName);
+            ReportManager.getInstance().logPass("Set User name field with: " + userName);
         } catch (Exception e) {
             ReportManager.getInstance().logTestFailed("The field isn't set" + e.getMessage());
         }
@@ -29,7 +29,7 @@ public class LoginPage extends BasePage {
     public LoginPage setPasswordField(String password) {
         try {
             CommonActions.setText(inputToInsertPassword, password);
-            ReportManager.getInstance().logTestPass("Set User name field with: " + password);
+            ReportManager.getInstance().logPass("Set User name field with: " + password);
         } catch (Exception e) {
             ReportManager.getInstance().logTestFailed("Password field isn't set: " + e.getMessage());
         }
@@ -38,11 +38,10 @@ public class LoginPage extends BasePage {
 
     public DashboardOrangeHRMPage clickOnLoginButton() {
         try {
-            Thread.sleep(10000);
             CommonActions.click(loginButton);
-            ReportManager.getInstance().logTestPass("Click on login button");
+            ReportManager.getInstance().logPass("Click on login button");
         } catch (Exception e) {
-            ReportManager.getInstance().logTestFailed("It isn't possible to click: " + e.getMessage());
+            //ReportManager.getInstance().logTestFailed("It isn't possible to click: " + e.getMessage());
         }
         return new DashboardOrangeHRMPage();
     }
@@ -50,9 +49,9 @@ public class LoginPage extends BasePage {
     public LoginPage goTo() {
         try {
             driver.get(BrowserConfig.getInstance().getOrangeURL());
-            ReportManager.getInstance().logTestPass("Go to dashboard of OrangeHRMsm site");
+            Thread.sleep(5000);
         } catch (Exception e) {
-            ReportManager.getInstance().logTestFailed("" + e.getMessage());
+            System.out.println(e.getCause());
         }
         return this;
     }
