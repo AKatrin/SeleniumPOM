@@ -25,6 +25,7 @@ public final class DriverManager {
 
         webDriver = WebDriverFactory.GetManager(BrowserType.valueOf(browserName)).getDriver();
         webDriver.manage().window().maximize();
+        webDriverWait = new WebDriverWait(webDriver, 15);
     }
 
     public void quitWebDriver() {
@@ -38,6 +39,4 @@ public final class DriverManager {
     public WebDriverWait getWebDriverWait() {
         return webDriverWait;
     }
-
-
 }
