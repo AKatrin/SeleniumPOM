@@ -50,4 +50,10 @@ public class BrowserConfig {
     public static BrowserConfig getInstance() {
         return new BrowserConfig();
     }
+
+    public String getDashboard() {
+        JSONObject jsonObject = (JSONObject) getJSON();
+        String dashboardURL = (String) jsonObject.get("dashboardURL");
+        return dashboardURL;
+    }
 }
