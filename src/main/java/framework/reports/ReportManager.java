@@ -45,7 +45,7 @@ public class ReportManager {
         report.flush();
     }
 
-    public void logTestPass(String description) {
+    public void logPass(String description) {
         extentTest.log(LogStatus.PASS, description);
     }
 
