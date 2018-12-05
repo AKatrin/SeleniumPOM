@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 public class CommonActions {
     public static WebDriver driver = DriverManager.getInstance().getWebDriver();
 
@@ -50,5 +52,13 @@ public class CommonActions {
 
     public static void navigate(String url) {
         driver.get(url);
+    }
+
+    public  static String getTitle() {
+        String title = driver.getTitle();
+        return title;
+    }
+    public static List<WebElement> getElements(WebElement element) {
+        return driver.findElements((By)element);
     }
 }
