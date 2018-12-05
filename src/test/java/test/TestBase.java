@@ -1,12 +1,13 @@
 package test;
 
+import framework.pages.OrangeHRM.DashboardOrangeHRMPage;
 import framework.reports.ReportManager;
-import org.testng.annotations.AfterTest;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import java.lang.reflect.Method;
 
-public class TestBase {
+public class TestBase extends LoginTest {
 
     @BeforeMethod
     public void setup(Method method) {
@@ -14,9 +15,11 @@ public class TestBase {
         ReportManager.getInstance().startNewTest(nameMethod);
     }
 
-    @AfterTest
+    @AfterMethod
     public void tearDown() {
         ReportManager.getInstance().endCurrentTest();
         ReportManager.getInstance().flushCurrentTest();
+        DashboardOrangeHRMPage dashboardOrangeHRMPage = new DashboardOrangeHRMPage();
+        dashboardOrangeHRMPage.goToDashboard();
     }
 }
