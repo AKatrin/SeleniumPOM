@@ -1,10 +1,13 @@
 package test;
 
+import framework.pages.OrangeHRM.AddCustomFieldSectionModal;
+import framework.pages.OrangeHRM.CustomFieldSectionPage;
 import framework.pages.OrangeHRM.DashboardOrangeHRMPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class CustomFieldSectionTest extends TestBase {
+
     @Test
     public void testCustomFieldSectionListIsLoading() {
         DashboardOrangeHRMPage dashboardOrangeHRMPage = new DashboardOrangeHRMPage();
@@ -25,7 +28,12 @@ public class CustomFieldSectionTest extends TestBase {
                 .clickOnPIMOptionOfLeftMenu()
                 .clickOnConfigurationOption()
                 .clickOnCustomField()
-                .clickOnAddCustomFieldSectionButton()
-                .setHeadingForCustomFieldSection("heading");
+                .clickOnAddCustomFieldSectionButton();
+        AddCustomFieldSectionModal.getInstance()
+                .setHeadingForCustomFieldSection("heading" + digits)
+                .selectAnOptionForScreen("Emergency Contacts" )
+                .clickOnSaveButton();
+        String title = CustomFieldSectionPage.getInstance().getTitle();
+        Assert.assertEquals("heading" + digits, title);
     }
 }
