@@ -22,6 +22,7 @@ public class CustomFieldSectionTest extends TestBase {
 
     @Test
     public void testCreateACustomFieldSection() {
+        String headingName = "Information Additional" + digits;
         DashboardOrangeHRMPage dashboardOrangeHRMPage = new DashboardOrangeHRMPage();
         dashboardOrangeHRMPage
                 .menuLeft
@@ -30,10 +31,12 @@ public class CustomFieldSectionTest extends TestBase {
                 .clickOnCustomField()
                 .clickOnAddCustomFieldSectionButton();
         AddCustomFieldSectionModal.getInstance()
-                .setHeadingForCustomFieldSection("heading" + digits)
-                .selectAnOptionForScreen("Emergency Contacts" )
+                .setHeadingForCustomFieldSection(headingName)
+                .selectAnOptionForScreen("Emergency Contacts")
                 .clickOnSaveButton();
-        String title = CustomFieldSectionPage.getInstance().getTitle();
-        Assert.assertEquals("heading" + digits, title);
+        String titleBasePage = "Custom Field Section navigate_next ";
+        String titlePage = CustomFieldSectionPage.getInstance().getTitleNavBar(titleBasePage + headingName);
+        Assert.assertEquals(titleBasePage + headingName, titlePage);
+        Assert.assertEquals(headingName, CustomFieldSectionPage.getInstance().getTitle());
     }
 }
