@@ -59,6 +59,7 @@ public class CommonActions {
         return title;
     }
     public static List<WebElement> getElements(WebElement element) {
-        return driver.findElements((By)element);
+        List<WebElement> elements = driver.findElements((By)element);
+        return elements;
     }
 }

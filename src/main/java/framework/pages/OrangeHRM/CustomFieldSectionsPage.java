@@ -11,18 +11,6 @@ public class CustomFieldSectionsPage extends BasePage {
     @FindBy(xpath = "//a[starts-with(.,'add')]")
     private WebElement addCustomfieldSectionButton;
 
-    public String getTitle() {
-        String title = "";
-        try {
-            Thread.sleep(10000);
-            title = CommonActions.getTitle();
-            ReportManager.getInstance().logPass("The title of page is: " + title);
-        } catch (Exception e) {
-            ReportManager.getInstance().logTestFailed("The title doesn't get " + e.getMessage());
-        }
-        return title;
-    }
-
     public AddCustomFieldSectionModal clickOnAddCustomFieldSectionButton() {
         try {
             CommonActions.waitForElementToBeClickable(addCustomfieldSectionButton);
